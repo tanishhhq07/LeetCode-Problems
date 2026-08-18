@@ -1,12 +1,11 @@
 class Solution(object):
     def finalString(self, s):
-        a = ""
-        for i in s:
-            if i == "i":
-                temp = ""
-                for j in range(len(a) - 1, -1, -1):
-                    temp += a[j]
-                a = temp
-            else:
-                a += i
-        return a
+        a=[]
+        i=0
+        while i < len(s):
+            if s[i]!='i':
+                a.append(s[i])
+            elif s[i]=='i':
+                a.reverse()
+            i+=1
+        return "".join(a)
