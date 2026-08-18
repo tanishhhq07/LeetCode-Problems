@@ -8,4 +8,5 @@ class Solution(object):
             elif s[i]=='i':
                 a.reverse()
             i+=1
-        return "".join(a)
+        ans = "".join(a)
+        return ans
