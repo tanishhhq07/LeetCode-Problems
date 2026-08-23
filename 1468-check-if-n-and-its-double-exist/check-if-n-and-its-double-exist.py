@@ -1,8 +1,8 @@
 class Solution(object):
     def checkIfExist(self, arr):
-        n = len(arr)
-        for i in range(n):
-            for j in range(n):
-                if i != j and (arr[i] == 2 * arr[j] or arr[j] == 2 * arr[i]):
-                    return True
+        for a in arr:
+            if a * 2 in arr:
+                if a == 0 and arr.count(a) == 1:
+                    continue
+                return True
         return False
