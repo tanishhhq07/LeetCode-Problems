@@ -10,8 +10,7 @@ class Solution(object):
             elif i in vowels:
                 v += 1
 
-        if c > 0:
-            return int(floor(v/c))
-        else:
+        if c == 0:
             return 0
+        return int(floor(v/c))
         
