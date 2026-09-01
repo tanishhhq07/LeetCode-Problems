@@ -1,12 +1,10 @@
 class Solution(object):
     def vowelConsonantScore(self, s):
         vowels = "aeiou"
-        cons = "bcdfghjklmnpqrstvwxyz"
         v = 0
         c = 0
-    
         for i in s:
-            if i in cons:
+            if i.isalpha() and i not in vowels:
                 c += 1
             elif i in vowels:
                 v += 1
