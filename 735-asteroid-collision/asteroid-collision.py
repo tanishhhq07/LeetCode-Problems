@@ -1,21 +1,26 @@
 class Solution(object):
     def asteroidCollision(self, asteroids):
-        stack = []
+        stk = []
         for i in asteroids:
-            stack.append(i)
-
-            while len(stack) >= 2:
-                a = stack[-2]
-                b = stack[-1]
-
-                if a > 0 and b < 0:
-                    if a < -b:
-                        stack.pop(-2)
-                    elif a == -b:
-                        stack.pop()
-                        stack.pop()
-                    else:
-                        stack.pop()
+            if not stk:
+                stk.append(i)
+            elif i>0:
+                stk.append(i)
+            elif i<0:
+                if stk[-1]<0:
+                    stk.append(i)
                 else:
-                    break
-        return stack
+                    if stk[-1]==-i:
+                        stk.pop()
+                    elif stk[-1]>-i:
+                        continue
+                    else:
+                        while stk and stk[-1]>0 and stk[-1]<-i:
+                            stk.pop()
+                        if not stk or stk[-1]<0:
+                            stk.append(i)
+                        elif stk[-1]==-i:
+                            stk.pop()
+                        else:
+                            continue   
+        return stk
