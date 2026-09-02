@@ -1,0 +1,20 @@
+class Solution(object):
+    def getLucky(self, s, k):
+        dict = {"a":1,"b":2,"c":3,"d":4,"e":5,"f":6,"g":7,"h":8,"i":9,"j":10,"k":11,"l":12,"m":13,"n":14,"o":15,"p":16,"q":17,"r":18,"s":19,"t":20,"u":21,"v":22,"w":23,"x":24,"y":25,"z":26}
+        total = 0
+        for i in s:
+            num = dict[i]
+            while num > 0:
+                total += num % 10
+                num //= 10
+
+        k -= 1
+        while k > 0:
+            new = 0
+            while total > 0:
+                new += total % 10
+                total //= 10
+            
+            total = new
+            k -= 1
+        return total
