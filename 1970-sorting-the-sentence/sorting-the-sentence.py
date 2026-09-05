@@ -1,7 +1,11 @@
 class Solution(object):
     def sortSentence(self, s):
-        arr = [""] * len(s.split())
-        for i in s.split():
-            num = int(i[-1])
-            arr[num-1] = i[:-1]
+        s = s.split()
+        arr = []
+
+        for i in range(1, len(s) + 1):
+            for j in s:
+                if j[-1] == str(i):
+                    arr.append(j[:-1])
+
         return " ".join(arr) 
