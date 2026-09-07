@@ -1,3 +1,6 @@
 class Solution(object):
     def distributeCandies(self, candyType):
-        return min(len(set(candyType)) , len(candyType) // 2)
+        n = len(candyType)
+        types = len(set(candyType))
+
+        return min(types , n // 2)
