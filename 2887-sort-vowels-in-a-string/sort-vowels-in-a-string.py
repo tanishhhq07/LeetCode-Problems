@@ -1,17 +1,18 @@
 class Solution(object):
     def sortVowels(self, s):
-        vowels = ['U','O','I','E','A','u','o','i','e','a']
-        arr = []
+        vowels = "AEIOUaeiou"
+        count = [0] * 10
         s = list(s)
         j = 0
-        for i in s:
-            if i in vowels:
-                arr.append(i)
+        for ch in s:
+            if ch in vowels:
+                count[vowels.index(ch)] += 1
 
-        arr.sort()
         for i in range(len(s)):
             if s[i] in vowels:
-                s[i] = arr[j]
-                j += 1
+                while count[j] == 0:
+                    j += 1
+                s[i] = vowels[j]
+                count[j] -= 1
 
         return ''.join(s)
