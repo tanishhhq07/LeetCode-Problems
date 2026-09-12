@@ -1,17 +1,11 @@
 class Solution(object):
     def interpret(self, command):
         arr = []
-        i = 0
-        while i < len(command):
+        for i in range(len(command)):
             if command[i] == "G":
                 arr.append("G")
-                i += 1
-
-            elif command[i:i+2] == "()":
+            if command[i] == "(" and command[i+1] == ")":
                 arr.append("o")
-                i += 2
-
-            else:
+            if command[i] == "(" and command[i+1] == "a" and command[i+2] == "l" and command[i+3] == ")":
                 arr.append("al")
-                i += 4
         return "".join(arr)
