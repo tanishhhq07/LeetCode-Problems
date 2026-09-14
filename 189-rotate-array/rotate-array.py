@@ -2,22 +2,25 @@ class Solution(object):
     def rotate(self, nums, k):
         n = len(nums)
         k = k % n
-        count = 0
-        start = 0
+        left = 0
+        right = n - 1
 
-        while count < n:
-            curr = start
-            prev = nums[curr]
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
 
-            while True:
-                next = (curr + k) % n
-                temp = nums[next]
-                nums[next] = prev
-                prev = temp
-                curr = next
-                count += 1
+        left = 0
+        right = k - 1
 
-                if curr == start:
-                    break
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
 
-            start += 1
+        left = k
+        right = n - 1
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
