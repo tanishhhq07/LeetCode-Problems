@@ -1,6 +1,6 @@
 class Solution(object):
     def findIntersectionValues(self, nums1, nums2):
-        ans = []
+        
         count1 = 0
         count2 = 0
         for i in nums1:
@@ -9,6 +9,4 @@ class Solution(object):
         for j in nums2:
             if j in nums1:
                 count2 += 1
-        ans.append(count1)        
-        ans.append(count2)
-        return ans
+        return [count1,count2]
