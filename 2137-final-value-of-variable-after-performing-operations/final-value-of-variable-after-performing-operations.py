@@ -4,7 +4,7 @@ class Solution(object):
         for i in operations:
             if i == "--X" or i == "X--":
                 val -= 1
-            elif i == "++X" or i == "X++":
+            if i == "++X" or i == "X++":
                 val += 1
         
         return val
