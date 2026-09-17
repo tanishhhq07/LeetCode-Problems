@@ -1,7 +1,6 @@
 class Solution(object):
     def findLongestWord(self, s, dictionary):
         ans = ""
-
         for a in dictionary:
             i = 0
             for k in s:
