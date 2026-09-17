@@ -3,11 +3,14 @@ class Solution(object):
         ans = ""
         for a in dictionary:
             i = 0
-            for k in s:
-                if i < len(a) and k == a[i]:
-                    i += 1
+            j = 0
 
-            if i == len(a):
+            while i < len(s) and j < len(a):
+                if s[i] == a[j]:
+                    j += 1
+                i += 1
+
+            if j == len(a):
                 if len(a) > len(ans):
                     ans = a
                 elif len(a) == len(ans) and a < ans:
