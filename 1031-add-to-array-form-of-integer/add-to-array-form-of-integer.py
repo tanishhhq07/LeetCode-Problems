@@ -10,6 +10,5 @@ class Solution(object):
             ans.append(total % 10)
             total //= 10
 
-        ans.reverse()
-        return ans
+        return ans[::-1]
         
