@@ -1,14 +1,12 @@
 class Solution(object):
     def addToArrayForm(self, num, k):
-        total = 0
+        i = len(num) - 1
         ans = []
-        for digit in num:
-            total = total * 10 + digit
-        
-        total += k
-        while total > 0:
-            ans.append(total % 10)
-            total //= 10
+        while i >= 0 or k > 0:
+            if i >= 0:
+                k += num[i]
+                i -= 1
+            ans.append(k % 10)
+            k //= 10
 
-        return ans[::-1]
-        
+        return num[:i + 1] + ans[::-1]
